@@ -134,10 +134,12 @@
             this.habDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.habDGV.Location = new System.Drawing.Point(31, 73);
             this.habDGV.Name = "habDGV";
+            this.habDGV.ReadOnly = true;
+            this.habDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.habDGV.Size = new System.Drawing.Size(757, 349);
             this.habDGV.TabIndex = 10;
             // 
-            // Form1
+            // TipusHab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,7 +155,7 @@
             this.Controls.Add(this.llitCombo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.persCombo);
-            this.Name = "Form1";
+            this.Name = "TipusHab";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.habDGV)).EndInit();
             this.ResumeLayout(false);
