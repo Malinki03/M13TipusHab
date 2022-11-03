@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 439);
             this.Controls.Add(this.habDGV);
             this.Controls.Add(this.delButton);
             this.Controls.Add(this.addButton);
@@ -156,7 +156,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.persCombo);
             this.Name = "TipusHab";
-            this.Text = "Form1";
+            this.Text = "Tipus d\'Habitacions";
             ((System.ComponentModel.ISupportInitialize)(this.habDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
