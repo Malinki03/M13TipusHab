@@ -18,7 +18,7 @@ namespace M13TipusHab.Controller
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new Controller1();
+            new TipusHabController();
         }
     }
 }

@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Controller1.cs" />
+    <Compile Include="Controller\TipusHabController.cs" />
     <Compile Include="Model\calendari.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -101,11 +101,11 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TipusLlits.cs" />
-    <Compile Include="View\Form1.cs">
+    <Compile Include="View\TipusHab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\TipusHab.Designer.cs">
+      <DependentUpon>TipusHab.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,8 +118,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="View\TipusHab.resx">
+      <DependentUpon>TipusHab.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

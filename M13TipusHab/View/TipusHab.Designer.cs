@@ -1,6 +1,6 @@
 ﻿namespace M13TipusHab.View
 {
-    partial class Form1
+    partial class TipusHab
     {
         /// <summary>
         /// Required designer variable.

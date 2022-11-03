@@ -8,14 +8,14 @@ using System.Windows.Forms.VisualStyles;
 namespace M13TipusHab.Controller
 {
     // Clase controladora principal
-    internal class Controller1
+    internal class TipusHabController
     {
-        Form1 f;
+        TipusHab f;
         Repository r;
 
-        public Controller1()
+        public TipusHabController()
         {
-            f = new Form1();
+            f = new TipusHab();
             r = new Repository();
             LoadData();
             InitListener();
