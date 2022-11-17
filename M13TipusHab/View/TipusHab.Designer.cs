@@ -39,11 +39,14 @@
             this.addButton = new System.Windows.Forms.Button();
             this.delButton = new System.Windows.Forms.Button();
             this.habDGV = new System.Windows.Forms.DataGridView();
+            this.modButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.habDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // persCombo
             // 
+            this.persCombo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.persCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.persCombo.FormattingEnabled = true;
             this.persCombo.Location = new System.Drawing.Point(31, 29);
             this.persCombo.Name = "persCombo";
@@ -70,6 +73,7 @@
             // 
             // llitCombo
             // 
+            this.llitCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.llitCombo.FormattingEnabled = true;
             this.llitCombo.Location = new System.Drawing.Point(97, 29);
             this.llitCombo.Name = "llitCombo";
@@ -87,6 +91,7 @@
             // 
             // balcCombo
             // 
+            this.balcCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.balcCombo.FormattingEnabled = true;
             this.balcCombo.Location = new System.Drawing.Point(358, 29);
             this.balcCombo.Name = "balcCombo";
@@ -113,18 +118,18 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(599, 29);
+            this.addButton.Location = new System.Drawing.Point(590, 29);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.Size = new System.Drawing.Size(62, 23);
             this.addButton.TabIndex = 8;
             this.addButton.Text = "Afegir";
             this.addButton.UseVisualStyleBackColor = true;
             // 
             // delButton
             // 
-            this.delButton.Location = new System.Drawing.Point(713, 29);
+            this.delButton.Location = new System.Drawing.Point(726, 27);
             this.delButton.Name = "delButton";
-            this.delButton.Size = new System.Drawing.Size(75, 23);
+            this.delButton.Size = new System.Drawing.Size(62, 23);
             this.delButton.TabIndex = 9;
             this.delButton.Text = "Esborra";
             this.delButton.UseVisualStyleBackColor = true;
@@ -134,14 +139,25 @@
             this.habDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.habDGV.Location = new System.Drawing.Point(31, 73);
             this.habDGV.Name = "habDGV";
+            this.habDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.habDGV.Size = new System.Drawing.Size(757, 349);
             this.habDGV.TabIndex = 10;
             // 
-            // Form1
+            // modButton
+            // 
+            this.modButton.Location = new System.Drawing.Point(658, 27);
+            this.modButton.Name = "modButton";
+            this.modButton.Size = new System.Drawing.Size(62, 23);
+            this.modButton.TabIndex = 11;
+            this.modButton.Text = "Modifica";
+            this.modButton.UseVisualStyleBackColor = true;
+            // 
+            // TipusHab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.modButton);
             this.Controls.Add(this.habDGV);
             this.Controls.Add(this.delButton);
             this.Controls.Add(this.addButton);
@@ -153,7 +169,7 @@
             this.Controls.Add(this.llitCombo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.persCombo);
-            this.Name = "Form1";
+            this.Name = "TipusHab";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.habDGV)).EndInit();
             this.ResumeLayout(false);
@@ -174,6 +190,7 @@
         public System.Windows.Forms.Button addButton;
         public System.Windows.Forms.Button delButton;
         public System.Windows.Forms.DataGridView habDGV;
+        public System.Windows.Forms.Button modButton;
     }
 }
 

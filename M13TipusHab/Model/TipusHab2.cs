@@ -11,11 +11,11 @@ namespace M13TipusHab.Model
     public partial class tipusHab
     {
 
-        public tipusHab(TipusLlits tLlits, short? qntPersones, string tipusBalco, bool teBanyera)
+        public tipusHab(TipusLlits tLlits, string tipusBalco, bool teBanyera)
         {
             llitsInd = tLlits.llitsI;
             llitsDob = tLlits.llitsD;
-            this.qntPersones = qntPersones;
+            this.qntPersones = (short)(llitsDob * 2 + llitsInd);
             this.tipusBalco = tipusBalco;
             if (teBanyera) { this.teBanyera = 1; }
             else { this.teBanyera = 0; }

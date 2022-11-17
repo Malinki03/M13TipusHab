@@ -61,7 +61,28 @@ namespace M13TipusHab.Model
         {
             db.tipusHabs.Add(tH);
             Console.WriteLine(tH);
+            try
+            {
             db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Aquest tipus d'habitació ja està creat.");
+            }
+        }
+        public void modTipusHab(tipusHab tH)
+        {
+            tipusHab ti = db.tipusHabs.Where(a => a.codi.Equals(tH.codi)).FirstOrDefault();
+            ti = tH;
+
+            try
+            {
+            db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Aquest tipus d'habitació ja està creat.");
+            }
         }
     }
 }
