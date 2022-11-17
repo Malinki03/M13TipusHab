@@ -139,25 +139,16 @@
             this.habDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.habDGV.Location = new System.Drawing.Point(31, 73);
             this.habDGV.Name = "habDGV";
+            this.habDGV.ReadOnly = true;
             this.habDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.habDGV.Size = new System.Drawing.Size(757, 349);
             this.habDGV.TabIndex = 10;
-            // 
-            // modButton
-            // 
-            this.modButton.Location = new System.Drawing.Point(658, 27);
-            this.modButton.Name = "modButton";
-            this.modButton.Size = new System.Drawing.Size(62, 23);
-            this.modButton.TabIndex = 11;
-            this.modButton.Text = "Modifica";
-            this.modButton.UseVisualStyleBackColor = true;
             // 
             // TipusHab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.modButton);
+            this.ClientSize = new System.Drawing.Size(800, 439);
             this.Controls.Add(this.habDGV);
             this.Controls.Add(this.delButton);
             this.Controls.Add(this.addButton);
@@ -170,7 +161,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.persCombo);
             this.Name = "TipusHab";
-            this.Text = "Form1";
+            this.Text = "Tipus d\'Habitacions";
             ((System.ComponentModel.ISupportInitialize)(this.habDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
