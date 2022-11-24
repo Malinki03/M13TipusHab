@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pabo.Calendar;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -14,6 +15,8 @@ namespace M13TipusHab.Model
             DbConnect();
         }
 
+        #region Querys a la base de datos
+
         // Método que conecta a la base de datos
         public void DbConnect()
         {
@@ -27,7 +30,8 @@ namespace M13TipusHab.Model
             try
             {
                 return db.tipusBalcoes.OrderBy(a => a.nomTipusBalco).ToList();
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
                 DbConnect();
@@ -36,7 +40,7 @@ namespace M13TipusHab.Model
         }
 
         //Metode que elimina un tipus d'habitacio de la base de dades.
-        public tipusHab DelTipusHab(tipusHab th) 
+        public tipusHab DelTipusHab(tipusHab th)
         {
             DelHabitacionsById(th);
             db.tipusHabs.Remove(th);
@@ -56,6 +60,15 @@ namespace M13TipusHab.Model
         {
             return db.tipusHabs.OrderBy(a => a.codi).ToList();
         }
+
+        public List<tarifa> GetTarifas()
+        {
+            return db.tarifas.Select(t => t).ToList();
+        }
+
+        #endregion
+
+        #region Insert Querys
 
         public void addTipusHab(tipusHab tH)
         {
@@ -84,5 +97,37 @@ namespace M13TipusHab.Model
                 MessageBox.Show("Aquest tipus d'habitació ja està creat.");
             }
         }
+
+        public void insertarDates(DateTime dataInici, DateTime dataFinal)
+        {
+            db.addDates(dataInici, dataFinal);
+            db.SaveChanges();
+        }
+
+        public void actualitzarTarifes(DateTime dataInici, DateTime dataFinal, int tarifa)
+        {
+            List<DateTime> dates = new List<DateTime>();
+            if (dataInici == dataFinal)
+            {
+                dates.Add(dataInici);
+            }
+            else
+            {
+                while (dataInici.Date <= dataFinal.Date)
+                {
+                    dates.Add(dataInici);
+                    dataInici = dataInici.AddDays(1);
+                }
+                dates.Add(dataFinal);
+            }
+            foreach (DateTime dt in dates)
+            {
+                calendari date = db.calendaris.Select(c => c).Where(c => c.data.Equals(dt.Date)).FirstOrDefault();
+                date.Tarifa_codi = tarifa;
+            }
+            db.SaveChanges();
+        }
+
+        #endregion
     }
 }
