@@ -39,11 +39,14 @@
             this.addButton = new System.Windows.Forms.Button();
             this.delButton = new System.Windows.Forms.Button();
             this.habDGV = new System.Windows.Forms.DataGridView();
+            this.modButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.habDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // persCombo
             // 
+            this.persCombo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.persCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.persCombo.FormattingEnabled = true;
             this.persCombo.Location = new System.Drawing.Point(31, 29);
             this.persCombo.Name = "persCombo";
@@ -70,6 +73,7 @@
             // 
             // llitCombo
             // 
+            this.llitCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.llitCombo.FormattingEnabled = true;
             this.llitCombo.Location = new System.Drawing.Point(97, 29);
             this.llitCombo.Name = "llitCombo";
@@ -87,6 +91,7 @@
             // 
             // balcCombo
             // 
+            this.balcCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.balcCombo.FormattingEnabled = true;
             this.balcCombo.Location = new System.Drawing.Point(358, 29);
             this.balcCombo.Name = "balcCombo";
@@ -113,18 +118,18 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(599, 29);
+            this.addButton.Location = new System.Drawing.Point(590, 29);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.Size = new System.Drawing.Size(62, 23);
             this.addButton.TabIndex = 8;
             this.addButton.Text = "Afegir";
             this.addButton.UseVisualStyleBackColor = true;
             // 
             // delButton
             // 
-            this.delButton.Location = new System.Drawing.Point(713, 29);
+            this.delButton.Location = new System.Drawing.Point(726, 27);
             this.delButton.Name = "delButton";
-            this.delButton.Size = new System.Drawing.Size(75, 23);
+            this.delButton.Size = new System.Drawing.Size(62, 23);
             this.delButton.TabIndex = 9;
             this.delButton.Text = "Esborra";
             this.delButton.UseVisualStyleBackColor = true;
@@ -176,6 +181,7 @@
         public System.Windows.Forms.Button addButton;
         public System.Windows.Forms.Button delButton;
         public System.Windows.Forms.DataGridView habDGV;
+        public System.Windows.Forms.Button modButton;
     }
 }
 

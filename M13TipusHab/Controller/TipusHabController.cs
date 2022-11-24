@@ -25,7 +25,7 @@ namespace M13TipusHab.Controller
         // Método que carga todos los datos de la aplicación
         void LoadData()
         {
-            f.persCombo.DataSource = new List<int>() { 0, 1, 2, 3 };
+            f.persCombo.DataSource = new List<String>() { " ", "1", "2", "3" };
             LoadComboBox2(null, null);
             f.balcCombo.DataSource = r.GetTipusBalco();
             f.balcCombo.DisplayMember = "nomTipusBalco";
@@ -50,6 +50,44 @@ namespace M13TipusHab.Controller
             f.persCombo.SelectedIndexChanged += LoadComboBox2;
             f.addButton.Click += AddButton_Click;
             f.delButton.Click += DelButton_Click;
+            f.modButton.Click += ModButton_Click;
+            f.habDGV.SelectionChanged += HabDGV_SelectionChanged;
+        }
+
+        private void HabDGV_SelectionChanged(object sender, EventArgs e)
+        {
+            if (f.habDGV.SelectedRows.Count > 0) {
+                f.persCombo.SelectedIndex = Int32.Parse(f.habDGV.SelectedRows[0].Cells[4].Value.ToString());
+                if (f.habDGV.SelectedRows[0].Cells[2].Value.ToString() + f.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "10")
+                    f.llitCombo.SelectedIndex = 0;
+                if (f.habDGV.SelectedRows[0].Cells[2].Value.ToString() + f.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "01")
+                    f.llitCombo.SelectedIndex = 1;
+                if (f.habDGV.SelectedRows[0].Cells[2].Value.ToString() + f.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "20")
+                    f.llitCombo.SelectedIndex = 0;
+                if (f.habDGV.SelectedRows[0].Cells[2].Value.ToString() + f.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "30")
+                    f.llitCombo.SelectedIndex = 0;
+                if (f.habDGV.SelectedRows[0].Cells[2].Value.ToString() + f.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "11")
+                    f.llitCombo.SelectedIndex = 1;
+                if (f.habDGV.SelectedRows[0].Cells[5].Value.ToString() == "bal0")
+                    f.balcCombo.SelectedIndex = 0;
+                if (f.habDGV.SelectedRows[0].Cells[5].Value.ToString() == "balN")
+                    f.balcCombo.SelectedIndex = 1;
+                if (f.habDGV.SelectedRows[0].Cells[5].Value.ToString() == "balP")
+                    f.balcCombo.SelectedIndex = 2;
+                if (f.habDGV.SelectedRows[0].Cells[6].Value.ToString() == "0")
+                    f.banyCheck.Checked = false;
+                if (f.habDGV.SelectedRows[0].Cells[6].Value.ToString() == "1")
+                    f.banyCheck.Checked = true;
+                    
+            }
+        }
+
+        private void ModButton_Click(object sender, EventArgs e)
+        {
+            r.modTipusHab(new tipusHab(
+                new TipusLlits(ComboBox2Index(f.llitCombo.Text)),
+                formatTipusBalco(f.balcCombo.SelectedIndex),
+                f.banyCheck.Checked));
         }
 
         // Método que numeraliza 
@@ -84,7 +122,6 @@ namespace M13TipusHab.Controller
         {
             r.addTipusHab(new tipusHab(
                 new TipusLlits(ComboBox2Index(f.llitCombo.Text)),
-                ((short)f.persCombo.SelectedIndex),
                 formatTipusBalco(f.balcCombo.SelectedIndex),
                 f.banyCheck.Checked));
             LoadData();
@@ -101,8 +138,6 @@ namespace M13TipusHab.Controller
             {
                 switch (n)
                 {
-                    case 0:
-                        return lL;
                     case 1:
                         return new List<string>() { "1 llit individual" };
                     case 2:
