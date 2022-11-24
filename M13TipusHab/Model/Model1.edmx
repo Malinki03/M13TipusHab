@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="hotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="hotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="calendari">
           <Key>
             <PropertyRef Name="data" />
@@ -91,11 +91,6 @@
           <Property Name="tipusBalco" Type="nvarchar" MaxLength="10" />
           <Property Name="teBanyera" Type="smallint" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'hotel.dbo.versio' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="versio">
-          <Property Name="versio" Type="numeric" Precision="3" Scale="1" />
-        </EntityType>-->
         <Association Name="calendari$fk_Calendari_Tarifa1">
           <End Role="tarifa" Type="Self.tarifa" Multiplicity="1" />
           <End Role="calendari" Type="Self.calendari" Multiplicity="*" />
@@ -216,6 +211,10 @@ warning 6013: The table/view 'hotel.dbo.versio' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="addDates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dataInici" Type="date" Mode="In" />
+          <Parameter Name="dataFi" Type="date" Mode="In" />
+        </Function>
         <EntityContainer Name="hotelModelStoreContainer">
           <EntitySet Name="calendari" EntityType="Self.calendari" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="costa" EntityType="Self.costa" Schema="dbo" store:Type="Tables" />
@@ -267,8 +266,7 @@ warning 6013: The table/view 'hotel.dbo.versio' does not have a primary key defi
             <End Role="habitacio" EntitySet="habitacio" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="hotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -548,6 +546,10 @@ warning 6013: The table/view 'hotel.dbo.versio' does not have a primary key defi
             <End Role="tipusBalco" EntitySet="tipusBalcoes" />
             <End Role="tipusHab" EntitySet="tipusHabs" />
           </AssociationSet>
+          <FunctionImport Name="addDates">
+            <Parameter Name="dataInici" Mode="In" Type="DateTime" />
+            <Parameter Name="dataFi" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -646,6 +648,7 @@ warning 6013: The table/view 'hotel.dbo.versio' does not have a primary key defi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="addDates" FunctionName="hotelModel.Store.addDates" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

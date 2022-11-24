@@ -30,16 +30,16 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.calendar = new Pabo.Calendar.MonthCalendar();
-            this.submButton1 = new System.Windows.Forms.Button();
-            this.desdeDT = new System.Windows.Forms.DateTimePicker();
-            this.finsaDT = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tarifaCombo = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.finsaDT = new System.Windows.Forms.DateTimePicker();
+            this.desdeDT = new System.Windows.Forms.DateTimePicker();
+            this.submButton1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.submButton2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tarifaCombo = new System.Windows.Forms.ComboBox();
+            this.calendar = new Pabo.Calendar.MonthCalendar();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -70,6 +70,54 @@
             this.tabPage1.Text = "Afegir Dades";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Fins a:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Des de:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // finsaDT
+            // 
+            this.finsaDT.CustomFormat = "dd/MM/yyyy";
+            this.finsaDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.finsaDT.Location = new System.Drawing.Point(6, 77);
+            this.finsaDT.Name = "finsaDT";
+            this.finsaDT.Size = new System.Drawing.Size(138, 20);
+            this.finsaDT.TabIndex = 3;
+            this.finsaDT.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            // 
+            // desdeDT
+            // 
+            this.desdeDT.CustomFormat = "";
+            this.desdeDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.desdeDT.Location = new System.Drawing.Point(6, 29);
+            this.desdeDT.Name = "desdeDT";
+            this.desdeDT.Size = new System.Drawing.Size(138, 20);
+            this.desdeDT.TabIndex = 2;
+            this.desdeDT.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            // 
+            // submButton1
+            // 
+            this.submButton1.Location = new System.Drawing.Point(28, 135);
+            this.submButton1.Name = "submButton1";
+            this.submButton1.Size = new System.Drawing.Size(97, 23);
+            this.submButton1.TabIndex = 0;
+            this.submButton1.Text = "Afegir Dades";
+            this.submButton1.UseVisualStyleBackColor = true;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.submButton2);
@@ -83,11 +131,37 @@
             this.tabPage2.Text = "Assignar";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // submButton2
+            // 
+            this.submButton2.Location = new System.Drawing.Point(38, 104);
+            this.submButton2.Name = "submButton2";
+            this.submButton2.Size = new System.Drawing.Size(75, 23);
+            this.submButton2.TabIndex = 2;
+            this.submButton2.Text = "Assignar";
+            this.submButton2.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Tarifa";
+            // 
+            // tarifaCombo
+            // 
+            this.tarifaCombo.FormattingEnabled = true;
+            this.tarifaCombo.Location = new System.Drawing.Point(6, 51);
+            this.tarifaCombo.Name = "tarifaCombo";
+            this.tarifaCombo.Size = new System.Drawing.Size(138, 21);
+            this.tarifaCombo.TabIndex = 0;
+            // 
             // calendar
             // 
-            this.calendar.ActiveMonth.Month = 11;
-            this.calendar.ActiveMonth.Year = 2022;
-            this.calendar.Culture = new System.Globalization.CultureInfo("en-GB");
+            this.calendar.ActiveMonth.Month = 1;
+            this.calendar.ActiveMonth.Year = 2020;
+            this.calendar.Culture = new System.Globalization.CultureInfo("es-ES");
             this.calendar.Footer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.calendar.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.calendar.Header.TextColor = System.Drawing.Color.White;
@@ -99,78 +173,11 @@
             this.calendar.Month.DateFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.calendar.Month.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.calendar.Name = "calendar";
+            this.calendar.SelectTrailingDates = false;
             this.calendar.Size = new System.Drawing.Size(194, 197);
             this.calendar.TabIndex = 1;
             this.calendar.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.calendar.Weeknumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            // 
-            // submButton1
-            // 
-            this.submButton1.Location = new System.Drawing.Point(28, 135);
-            this.submButton1.Name = "submButton1";
-            this.submButton1.Size = new System.Drawing.Size(97, 23);
-            this.submButton1.TabIndex = 0;
-            this.submButton1.Text = "Afegir Dades";
-            this.submButton1.UseVisualStyleBackColor = true;
-            // 
-            // desdeDT
-            // 
-            this.desdeDT.Location = new System.Drawing.Point(6, 29);
-            this.desdeDT.Name = "desdeDT";
-            this.desdeDT.Size = new System.Drawing.Size(138, 20);
-            this.desdeDT.TabIndex = 2;
-            // 
-            // finsaDT
-            // 
-            this.finsaDT.Location = new System.Drawing.Point(6, 77);
-            this.finsaDT.Name = "finsaDT";
-            this.finsaDT.Size = new System.Drawing.Size(138, 20);
-            this.finsaDT.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Des de:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Fins a:";
-            // 
-            // tarifaCombo
-            // 
-            this.tarifaCombo.FormattingEnabled = true;
-            this.tarifaCombo.Location = new System.Drawing.Point(6, 51);
-            this.tarifaCombo.Name = "tarifaCombo";
-            this.tarifaCombo.Size = new System.Drawing.Size(138, 21);
-            this.tarifaCombo.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Tarifa";
-            // 
-            // submButton2
-            // 
-            this.submButton2.Location = new System.Drawing.Point(38, 104);
-            this.submButton2.Name = "submButton2";
-            this.submButton2.Size = new System.Drawing.Size(75, 23);
-            this.submButton2.TabIndex = 2;
-            this.submButton2.Text = "Assignar";
-            this.submButton2.UseVisualStyleBackColor = true;
             // 
             // Calendari
             // 

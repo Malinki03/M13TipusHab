@@ -12,6 +12,8 @@ namespace M13TipusHab.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class hotelEntities : DbContext
     {
@@ -34,5 +36,18 @@ namespace M13TipusHab.Model
         public virtual DbSet<tarifa> tarifas { get; set; }
         public virtual DbSet<tipusBalco> tipusBalcoes { get; set; }
         public virtual DbSet<tipusHab> tipusHabs { get; set; }
+    
+        public virtual int addDates(Nullable<System.DateTime> dataInici, Nullable<System.DateTime> dataFi)
+        {
+            var dataIniciParameter = dataInici.HasValue ?
+                new ObjectParameter("dataInici", dataInici) :
+                new ObjectParameter("dataInici", typeof(System.DateTime));
+    
+            var dataFiParameter = dataFi.HasValue ?
+                new ObjectParameter("dataFi", dataFi) :
+                new ObjectParameter("dataFi", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addDates", dataIniciParameter, dataFiParameter);
+        }
     }
 }
