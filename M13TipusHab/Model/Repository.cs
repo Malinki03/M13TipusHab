@@ -66,6 +66,11 @@ namespace M13TipusHab.Model
             return db.tarifas.Select(t => t).ToList();
         }
 
+        internal object GetCostas()
+        {
+            return db.costas.Select(c => c).ToList();
+        }
+
         #endregion
 
         #region Insert Querys
