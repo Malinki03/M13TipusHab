@@ -65,6 +65,15 @@ namespace M13TipusHab.Model
         {
             return db.tarifas.Select(t => t).ToList();
         }
+        public List<calendari> GetDates()
+        {
+            return db.calendaris.Select(c => c).ToList();
+        }
+
+        public tarifa GetTarifaPerCodi(int codiTarifa)
+        {
+            return db.tarifas.Select(t => t).Where(t => t.codi.Equals(codiTarifa)).FirstOrDefault();
+        }
 
         #endregion
 
