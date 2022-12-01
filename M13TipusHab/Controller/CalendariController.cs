@@ -1,7 +1,9 @@
 ﻿using M13TipusHab.Model;
 using M13TipusHab.View;
+using Pabo.Calendar;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +24,7 @@ namespace M13TipusHab.Controller
             calendarConfig();
             this.calendari.tarifaCombo.DataSource = this.repo.GetTarifas();
             this.calendari.tarifaCombo.DisplayMember = "nom";
+            colorCalendar();
             Application.Run(this.calendari);
         }
 
@@ -43,6 +46,7 @@ namespace M13TipusHab.Controller
             DateTime endDate = this.calendari.finsaDT.Value;
             this.repo.insertarDates(startDate, endDate);
             this.repo.actualitzarTarifes(startDate, endDate, tarifa);
+            colorCalendar();
         }
 
         private void calendarConfig()
@@ -51,6 +55,17 @@ namespace M13TipusHab.Controller
             this.calendari.calendar.ActiveMonth.Year = DateTime.Now.Year;
             this.calendari.desdeDT.Value = DateTime.Now;
             this.calendari.finsaDT.Value = DateTime.Now;
+        }
+
+        private void colorCalendar()
+        {
+            foreach (calendari c in this.repo.GetDates())
+            {
+                DateItem dt = new DateItem();
+                dt.Date = c.data;
+                dt.BackColor1 = Color.FromName(this.repo.GetTarifaPerCodi(c.Tarifa_codi).color);
+                this.calendari.calendar.AddDateInfo(dt);
+            }
         }
     }
 }
