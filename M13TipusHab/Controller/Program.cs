@@ -18,7 +18,7 @@ namespace M13TipusHab.Controller
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new CalendariController();
+            new TipusHabController();
         }
     }
 }
