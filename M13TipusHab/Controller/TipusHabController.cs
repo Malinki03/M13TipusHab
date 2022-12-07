@@ -31,6 +31,7 @@ namespace M13TipusHab.Controller
             tipusHab.balcCombo.DataSource = repo.GetTipusBalco();
             tipusHab.balcCombo.DisplayMember = "nomTipusBalco";
             tipusHab.habDGV.DataSource = repo.GetTipusHabs();
+            tipusHab.habDGV.Columns["tipusBalco1"].Visible = false;
         }
 
         void reloadDataGridView()
@@ -63,7 +64,7 @@ namespace M13TipusHab.Controller
         private void HabDGV_SelectionChanged(object sender, EventArgs e)
         {
             if (tipusHab.habDGV.SelectedRows.Count > 0) {
-                tipusHab.persCombo.SelectedIndex = Int32.Parse(tipusHab.habDGV.SelectedRows[0].Cells[4].Value.ToString());
+                tipusHab.persCombo.SelectedIndex = Int32.Parse(tipusHab.habDGV.SelectedRows[0].Cells[4].Value.ToString()) - 1;
                 if (tipusHab.habDGV.SelectedRows[0].Cells[2].Value.ToString() + tipusHab.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "10")
                     tipusHab.llitCombo.SelectedIndex = 0;
                 if (tipusHab.habDGV.SelectedRows[0].Cells[2].Value.ToString() + tipusHab.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "01")
@@ -91,13 +92,13 @@ namespace M13TipusHab.Controller
         private void ModButton_Click(object sender, EventArgs e)
         {
             repo.modTipusHab(new tipusHab(
-                new TipusLlits(ComboBox2Index(tipusHab.llitCombo.Text)),
+                new TipusLlits(llitComboIndex(tipusHab.llitCombo.Text)),
                 formatTipusBalco(tipusHab.balcCombo.SelectedIndex),
                 tipusHab.banyCheck.Checked));
         }
 
         // Método que numeraliza 
-        short? ComboBox2Index(String comboBoxIndex)
+        short? llitComboIndex(String comboBoxIndex)
         {
             if (comboBoxIndex.Equals("1 llit individual")) return 0;
             else if (comboBoxIndex.Equals("2 llits individuals")) return 1;
@@ -127,7 +128,7 @@ namespace M13TipusHab.Controller
         private void AddButton_Click(object sender, EventArgs e)
         {
             repo.addTipusHab(new tipusHab(
-                new TipusLlits(ComboBox2Index(tipusHab.llitCombo.Text)),
+                new TipusLlits(llitComboIndex(tipusHab.llitCombo.Text)),
                 formatTipusBalco(tipusHab.balcCombo.SelectedIndex),
                 tipusHab.banyCheck.Checked));
             LoadData();
