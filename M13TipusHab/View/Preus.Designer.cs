@@ -62,7 +62,7 @@
             // 
             // copiar_B
             // 
-            this.copiar_B.Location = new System.Drawing.Point(283, 25);
+            this.copiar_B.Location = new System.Drawing.Point(283, 24);
             this.copiar_B.Name = "copiar_B";
             this.copiar_B.Size = new System.Drawing.Size(103, 23);
             this.copiar_B.TabIndex = 4;
@@ -72,7 +72,7 @@
             // preus_L
             // 
             this.preus_L.AutoSize = true;
-            this.preus_L.Location = new System.Drawing.Point(12, 79);
+            this.preus_L.Location = new System.Drawing.Point(12, 71);
             this.preus_L.Name = "preus_L";
             this.preus_L.Size = new System.Drawing.Size(34, 13);
             this.preus_L.TabIndex = 5;
@@ -80,7 +80,7 @@
             // 
             // esborrar_B
             // 
-            this.esborrar_B.Location = new System.Drawing.Point(52, 66);
+            this.esborrar_B.Location = new System.Drawing.Point(70, 66);
             this.esborrar_B.Name = "esborrar_B";
             this.esborrar_B.Size = new System.Drawing.Size(90, 23);
             this.esborrar_B.TabIndex = 6;
@@ -98,6 +98,7 @@
             // 
             // ok_B
             // 
+            this.ok_B.Enabled = false;
             this.ok_B.Location = new System.Drawing.Point(283, 66);
             this.ok_B.Name = "ok_B";
             this.ok_B.Size = new System.Drawing.Size(36, 23);
@@ -107,6 +108,7 @@
             // 
             // cancel_B
             // 
+            this.cancel_B.Enabled = false;
             this.cancel_B.Location = new System.Drawing.Point(325, 66);
             this.cancel_B.Name = "cancel_B";
             this.cancel_B.Size = new System.Drawing.Size(61, 23);
@@ -135,10 +137,11 @@
             this.nodaDataInicial_DT.CustomFormat = "";
             this.nodaDataInicial_DT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.nodaDataInicial_DT.Location = new System.Drawing.Point(176, 27);
+            this.nodaDataInicial_DT.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.nodaDataInicial_DT.Name = "nodaDataInicial_DT";
             this.nodaDataInicial_DT.Size = new System.Drawing.Size(89, 20);
             this.nodaDataInicial_DT.TabIndex = 13;
-            this.nodaDataInicial_DT.Value = new System.DateTime(2022, 11, 24, 0, 0, 0, 0);
+            this.nodaDataInicial_DT.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // Preus
             // 

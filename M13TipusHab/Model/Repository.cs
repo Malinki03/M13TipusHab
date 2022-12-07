@@ -134,5 +134,21 @@ namespace M13TipusHab.Model
         }
 
         #endregion
+
+        #region DeleteQuerys
+
+        public void eliminarCostos()
+        {
+            this.db.Database.ExecuteSqlCommand("DELETE FROM costa;");
+        }
+
+        #endregion
+
+        #region Llamadas a procedures
+        public void addCosta0(DateTime dataInici)
+        {
+            this.db.addCosta0(dataInici);
+        }
+        #endregion
     }
 }

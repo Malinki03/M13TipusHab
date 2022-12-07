@@ -49,5 +49,14 @@ namespace M13TipusHab.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addDates", dataIniciParameter, dataFiParameter);
         }
+    
+        public virtual int addCosta0(Nullable<System.DateTime> dataInici)
+        {
+            var dataIniciParameter = dataInici.HasValue ?
+                new ObjectParameter("dataInici", dataInici) :
+                new ObjectParameter("dataInici", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addCosta0", dataIniciParameter);
+        }
     }
 }
