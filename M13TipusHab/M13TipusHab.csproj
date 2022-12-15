@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CalendariController.cs" />
+    <Compile Include="Controller\MenuController.cs" />
     <Compile Include="Controller\PreusController.cs" />
     <Compile Include="Controller\TipusHabController.cs" />
     <Compile Include="Model\calendari.cs">
@@ -114,6 +115,12 @@
     <Compile Include="View\Calendari.Designer.cs">
       <DependentUpon>Calendari.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Preus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +146,9 @@
     </Compile>
     <EmbeddedResource Include="View\Calendari.resx">
       <DependentUpon>Calendari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Preus.resx">
       <DependentUpon>Preus.cs</DependentUpon>

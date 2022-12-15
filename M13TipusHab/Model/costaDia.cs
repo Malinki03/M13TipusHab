@@ -19,6 +19,6 @@ namespace M13TipusHab.Model
         public decimal preu { get; set; }
     
         public virtual calendari calendari { get; set; }
-        public virtual tipusHab tipusHab { get; set; }
+        public virtual TipusHab tipusHab { get; set; }
     }
 }

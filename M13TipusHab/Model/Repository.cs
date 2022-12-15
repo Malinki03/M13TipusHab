@@ -1,6 +1,7 @@
 ﻿using Pabo.Calendar;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -40,7 +41,7 @@ namespace M13TipusHab.Model
         }
 
         //Metode que elimina un tipus d'habitacio de la base de dades.
-        public tipusHab DelTipusHab(tipusHab th)
+        public TipusHab DelTipusHab(TipusHab th)
         {
             DelHabitacionsById(th);
             db.tipusHabs.Remove(th);
@@ -48,7 +49,7 @@ namespace M13TipusHab.Model
             return th;
         }
 
-        public void DelHabitacionsById(tipusHab th)
+        public void DelHabitacionsById(TipusHab th)
         {
             List<habitacio> habitacions = db.habitacios.Select(h => h).Where(h => h.TipusHab_codi.Equals(th.codi)).ToList();
             db.habitacios.RemoveRange(habitacions);
@@ -56,7 +57,7 @@ namespace M13TipusHab.Model
         }
 
         // Lista los tipos de habitación por orden de código
-        public List<tipusHab> GetTipusHabs()
+        public List<TipusHab> GetTipusHabs()
         {
             return db.tipusHabs.OrderBy(a => a.codi).ToList();
         }
@@ -75,7 +76,7 @@ namespace M13TipusHab.Model
 
         #region Insert Querys
 
-        public void addTipusHab(tipusHab tH)
+        public void AddTipusHab(TipusHab tH)
         {
             db.tipusHabs.Add(tH);
             Console.WriteLine(tH);
@@ -83,33 +84,33 @@ namespace M13TipusHab.Model
             {
             db.SaveChanges();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Aquest tipus d'habitació ja està creat.");
             }
         }
-        public void modTipusHab(tipusHab tH)
+        public void ModTipusHab(TipusHab tH)
         {
-            tipusHab ti = db.tipusHabs.Where(a => a.codi.Equals(tH.codi)).FirstOrDefault();
+            TipusHab ti = db.tipusHabs.Where(a => a.codi.Equals(tH.codi)).FirstOrDefault();
             ti = tH;
 
             try
             {
             db.SaveChanges();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Aquest tipus d'habitació ja està creat.");
             }
         }
 
-        public void insertarDates(DateTime dataInici, DateTime dataFinal)
+        public void InsertarDates(DateTime dataInici, DateTime dataFinal)
         {
             db.addDates(dataInici, dataFinal);
             db.SaveChanges();
         }
 
-        public void actualitzarTarifes(DateTime dataInici, DateTime dataFinal, int tarifa)
+        public void ActualitzarTarifes(DateTime dataInici, DateTime dataFinal, int tarifa)
         {
             List<DateTime> dates = new List<DateTime>();
             if (dataInici == dataFinal)
@@ -137,7 +138,7 @@ namespace M13TipusHab.Model
 
         #region DeleteQuerys
 
-        public void eliminarCostos()
+        public void EliminarCostos()
         {
             this.db.Database.ExecuteSqlCommand("DELETE FROM costa;");
         }
@@ -145,9 +146,15 @@ namespace M13TipusHab.Model
         #endregion
 
         #region Llamadas a procedures
-        public void addCosta0(DateTime dataInici)
+        public void AddCosta0(DateTime dataInici)
         {
-            this.db.addCosta0(dataInici);
+            try
+            {
+                this.db.addCosta0(dataInici);
+            }
+            catch (EntityCommandExecutionException)
+            {
+            }
         }
         #endregion
     }

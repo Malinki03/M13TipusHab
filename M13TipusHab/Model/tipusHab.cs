@@ -12,10 +12,10 @@ namespace M13TipusHab.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tipusHab
+    public partial class TipusHab
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tipusHab()
+        public TipusHab()
         {
             this.costas = new HashSet<costa>();
             this.costaDias = new HashSet<costaDia>();

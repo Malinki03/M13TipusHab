@@ -21,6 +21,6 @@ namespace M13TipusHab.Model
         public Nullable<System.DateTime> FinsA { get; set; }
     
         public virtual tarifa tarifa { get; set; }
-        public virtual tipusHab tipusHab { get; set; }
+        public virtual TipusHab tipusHab { get; set; }
     }
 }

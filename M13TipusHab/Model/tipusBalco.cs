@@ -17,13 +17,13 @@ namespace M13TipusHab.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tipusBalco()
         {
-            this.tipusHabs = new HashSet<tipusHab>();
+            this.tipusHabs = new HashSet<TipusHab>();
         }
     
         public string tipusBalco1 { get; set; }
         public string nomTipusBalco { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tipusHab> tipusHabs { get; set; }
+        public virtual ICollection<TipusHab> tipusHabs { get; set; }
     }
 }

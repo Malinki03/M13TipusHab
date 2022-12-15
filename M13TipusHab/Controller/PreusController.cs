@@ -19,20 +19,20 @@ namespace M13TipusHab.Controller
         {
             this.preus = new Preus();
             this.repo = new Repository();
-            initListeners();
-            dgvCongif();
-            loadWidgets();
-            Application.Run(this.preus);
+            InitListeners();
+            DgvCongif();
+            LoadWidgets();
+            preus.Show();
         }
 
-        private void enableButtons()
+        private void EnableButtons()
         {
             this.preus.ok_B.Enabled = true;
             this.preus.ok_B.ForeColor = Color.Green;
             this.preus.cancel_B.Enabled = true;
             this.preus.cancel_B.ForeColor = Color.Red;
         }
-        private void disableButtons()
+        private void DisableButtons()
         {
             this.preus.ok_B.Enabled = false;
             this.preus.ok_B.ForeColor = Color.Black;
@@ -40,17 +40,17 @@ namespace M13TipusHab.Controller
             this.preus.cancel_B.ForeColor = Color.Black;
         }
 
-        private void updateDGV()
+        private void UpdateDGV()
         {
             this.preus.preus_DGV.DataSource = this.repo.GetCostas();
         }
 
-        private void loadWidgets()
+        private void LoadWidgets()
         {
-            this.preus.nodaDataInicial_DT.Value = DateTime.Now;
+//            this.preus.nodaDataInicial_DT.Value = DateTime.Now; (ya he puesto minDate: Today en sus propiedades)
         }
 
-        private void dgvCongif()
+        private void DgvCongif()
         {
             this.preus.preus_DGV.DataSource = this.repo.GetCostas();
             this.preus.preus_DGV.Columns["Desde"].Visible = false;
@@ -61,7 +61,7 @@ namespace M13TipusHab.Controller
             this.preus.preus_DGV.Columns["tipusHab"].DisplayIndex = 3;
         }
 
-        private void initListeners()
+        private void InitListeners()
         {
             this.preus.esborrar_B.Click += Esborrar_B_Click;
             this.preus.copiar_B.Click += Copiar_B_Click;
@@ -71,24 +71,25 @@ namespace M13TipusHab.Controller
 
         private void Cancel_B_Click(object sender, EventArgs e)
         {
-            disableButtons();
+            DisableButtons();
         }
 
         private void Ok_B_Click(object sender, EventArgs e)
         {
-            disableButtons();
+            DisableButtons();
+            DgvCongif();
         }
 
         private void Copiar_B_Click(object sender, EventArgs e)
         {
-            enableButtons();
-//            this.repo.addCosta0(this.preus.nodaDataInicial_DT.Value); 
+            EnableButtons();
+            this.repo.AddCosta0(this.preus.nodaDataInicial_DT.Value); 
         }
 
         private void Esborrar_B_Click(object sender, EventArgs e)
         {
-            this.repo.eliminarCostos();
-            updateDGV();
+            this.repo.EliminarCostos();
+            UpdateDGV();
         }
     }
 }

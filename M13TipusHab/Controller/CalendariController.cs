@@ -18,14 +18,14 @@ namespace M13TipusHab.Controller
         {
             this.calendari = new Calendari();
             this.repo = new Repository();
-            initListeners();
-            calendarConfig();
+            InitListeners();
+            CalendarConfig();
             this.calendari.tarifaCombo.DataSource = this.repo.GetTarifas();
             this.calendari.tarifaCombo.DisplayMember = "nom";
-            Application.Run(this.calendari);
+            calendari.Show();
         }
 
-        private void initListeners()
+        private void InitListeners()
         {
             this.calendari.submButton1.Click += SubmButton1_Click;
             this.calendari.submButton2.Click += SubmButton2_Click;
@@ -41,11 +41,11 @@ namespace M13TipusHab.Controller
         {
             DateTime startDate = this.calendari.desdeDT.Value;
             DateTime endDate = this.calendari.finsaDT.Value;
-            this.repo.insertarDates(startDate, endDate);
-            this.repo.actualitzarTarifes(startDate, endDate, tarifa);
+            this.repo.InsertarDates(startDate, endDate);
+            this.repo.ActualitzarTarifes(startDate, endDate, tarifa);
         }
 
-        private void calendarConfig()
+        private void CalendarConfig()
         {
             this.calendari.calendar.ActiveMonth.Month = DateTime.Now.Month;
             this.calendari.calendar.ActiveMonth.Year = DateTime.Now.Year;

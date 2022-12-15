@@ -137,11 +137,11 @@
             this.nodaDataInicial_DT.CustomFormat = "";
             this.nodaDataInicial_DT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.nodaDataInicial_DT.Location = new System.Drawing.Point(176, 27);
-            this.nodaDataInicial_DT.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.nodaDataInicial_DT.MinDate = new System.DateTime(2022, 12, 15, 0, 0, 0, 0);
             this.nodaDataInicial_DT.Name = "nodaDataInicial_DT";
             this.nodaDataInicial_DT.Size = new System.Drawing.Size(89, 20);
             this.nodaDataInicial_DT.TabIndex = 13;
-            this.nodaDataInicial_DT.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.nodaDataInicial_DT.Value = new System.DateTime(2022, 12, 15, 0, 0, 0, 0);
             // 
             // Preus
             // 

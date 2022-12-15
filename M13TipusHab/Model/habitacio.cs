@@ -25,6 +25,6 @@ namespace M13TipusHab.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<habitacioDia> habitacioDias { get; set; }
-        public virtual tipusHab tipusHab { get; set; }
+        public virtual TipusHab tipusHab { get; set; }
     }
 }

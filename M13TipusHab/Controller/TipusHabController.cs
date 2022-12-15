@@ -10,84 +10,84 @@ namespace M13TipusHab.Controller
     // Clase controladora principal
     internal class TipusHabController
     {
-        TipusHab f;
+        View.TipusHab tipusHab;
         Repository r;
 
         public TipusHabController()
         {
-            f = new TipusHab();
+            tipusHab = new View.TipusHab();
             r = new Repository();
             LoadData();
             InitListener();
-            Application.Run(f);
+            tipusHab.Show();
         }
 
         // Método que carga todos los datos de la aplicación
         void LoadData()
         {
-            f.persCombo.DataSource = new List<String>() { " ", "1", "2", "3" };
+            tipusHab.persCombo.DataSource = new List<String>() { " ", "1", "2", "3" };
             LoadComboBox2(null, null);
-            f.balcCombo.DataSource = r.GetTipusBalco();
-            f.balcCombo.DisplayMember = "nomTipusBalco";
-            f.habDGV.DataSource = r.GetTipusHabs();
+            tipusHab.balcCombo.DataSource = r.GetTipusBalco();
+            tipusHab.balcCombo.DisplayMember = "nomTipusBalco";
+            tipusHab.habDGV.DataSource = r.GetTipusHabs();
         }
 
-        void reloadDataGridView()
+        void ReloadDataGridView()
         {
-            f.habDGV.DataSource = r.GetTipusHabs();
+            tipusHab.habDGV.DataSource = r.GetTipusHabs();
         }
 
         // Evento que carga el contenido del combo box de tipos de combinaciones de cama, cambiando cuando se altere la combo box de número de personas
         void LoadComboBox2(object sender, EventArgs e)
         {
             List<String> lLlits = new List<String>() { "1 llit individual", "2 llits individuals", "1 llit matrimonial", "3 llits individuals", "1 llit matrimonial i 1 llit individual" }; ;
-            f.llitCombo.DataSource = LlistaLlits(lLlits, f.persCombo.SelectedIndex);
+            tipusHab.llitCombo.DataSource = LlistaLlits(lLlits, tipusHab.persCombo.SelectedIndex);
         }
 
         // Método que inicializa los listeners
         void InitListener()
         {
-            f.persCombo.SelectedIndexChanged += LoadComboBox2;
-            f.addButton.Click += AddButton_Click;
-            f.delButton.Click += DelButton_Click;
-            f.modButton.Click += ModButton_Click;
-            f.habDGV.SelectionChanged += HabDGV_SelectionChanged;
+            tipusHab.persCombo.SelectedIndexChanged += LoadComboBox2;
+            tipusHab.addButton.Click += AddButton_Click;
+            tipusHab.delButton.Click += DelButton_Click;
+            tipusHab.modButton.Click += ModButton_Click;
+            tipusHab.habDGV.SelectionChanged += HabDGV_SelectionChanged;
         }
 
         private void HabDGV_SelectionChanged(object sender, EventArgs e)
         {
-            if (f.habDGV.SelectedRows.Count > 0) {
-                f.persCombo.SelectedIndex = Int32.Parse(f.habDGV.SelectedRows[0].Cells[4].Value.ToString());
-                if (f.habDGV.SelectedRows[0].Cells[2].Value.ToString() + f.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "10")
-                    f.llitCombo.SelectedIndex = 0;
-                if (f.habDGV.SelectedRows[0].Cells[2].Value.ToString() + f.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "01")
-                    f.llitCombo.SelectedIndex = 1;
-                if (f.habDGV.SelectedRows[0].Cells[2].Value.ToString() + f.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "20")
-                    f.llitCombo.SelectedIndex = 0;
-                if (f.habDGV.SelectedRows[0].Cells[2].Value.ToString() + f.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "30")
-                    f.llitCombo.SelectedIndex = 0;
-                if (f.habDGV.SelectedRows[0].Cells[2].Value.ToString() + f.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "11")
-                    f.llitCombo.SelectedIndex = 1;
-                if (f.habDGV.SelectedRows[0].Cells[5].Value.ToString() == "bal0")
-                    f.balcCombo.SelectedIndex = 0;
-                if (f.habDGV.SelectedRows[0].Cells[5].Value.ToString() == "balN")
-                    f.balcCombo.SelectedIndex = 1;
-                if (f.habDGV.SelectedRows[0].Cells[5].Value.ToString() == "balP")
-                    f.balcCombo.SelectedIndex = 2;
-                if (f.habDGV.SelectedRows[0].Cells[6].Value.ToString() == "0")
-                    f.banyCheck.Checked = false;
-                if (f.habDGV.SelectedRows[0].Cells[6].Value.ToString() == "1")
-                    f.banyCheck.Checked = true;
+            if (tipusHab.habDGV.SelectedRows.Count > 0) {
+                tipusHab.persCombo.SelectedIndex = int.Parse(tipusHab.habDGV.SelectedRows[0].Cells[4].Value.ToString());
+                if (tipusHab.habDGV.SelectedRows[0].Cells[2].Value.ToString() + tipusHab.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "10")
+                    tipusHab.llitCombo.SelectedIndex = 0;
+                if (tipusHab.habDGV.SelectedRows[0].Cells[2].Value.ToString() + tipusHab.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "01")
+                    tipusHab.llitCombo.SelectedIndex = 1;
+                if (tipusHab.habDGV.SelectedRows[0].Cells[2].Value.ToString() + tipusHab.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "20")
+                    tipusHab.llitCombo.SelectedIndex = 0;
+                if (tipusHab.habDGV.SelectedRows[0].Cells[2].Value.ToString() + tipusHab.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "30")
+                    tipusHab.llitCombo.SelectedIndex = 0;
+                if (tipusHab.habDGV.SelectedRows[0].Cells[2].Value.ToString() + tipusHab.habDGV.SelectedRows[0].Cells[3].Value.ToString() == "11")
+                    tipusHab.llitCombo.SelectedIndex = 1;
+                if (tipusHab.habDGV.SelectedRows[0].Cells[5].Value.ToString() == "bal0")
+                    tipusHab.balcCombo.SelectedIndex = 0;
+                if (tipusHab.habDGV.SelectedRows[0].Cells[5].Value.ToString() == "balN")
+                    tipusHab.balcCombo.SelectedIndex = 1;
+                if (tipusHab.habDGV.SelectedRows[0].Cells[5].Value.ToString() == "balP")
+                    tipusHab.balcCombo.SelectedIndex = 2;
+                if (tipusHab.habDGV.SelectedRows[0].Cells[6].Value.ToString() == "0")
+                    tipusHab.banyCheck.Checked = false;
+                if (tipusHab.habDGV.SelectedRows[0].Cells[6].Value.ToString() == "1")
+                    tipusHab.banyCheck.Checked = true;
                     
             }
         }
 
         private void ModButton_Click(object sender, EventArgs e)
         {
-            r.modTipusHab(new tipusHab(
-                new TipusLlits(ComboBox2Index(f.llitCombo.Text)),
-                formatTipusBalco(f.balcCombo.SelectedIndex),
-                f.banyCheck.Checked));
+            r.ModTipusHab(new Model.TipusHab(
+                new TipusLlits(ComboBox2Index(tipusHab.llitCombo.Text)),
+                FormatTipusBalco(tipusHab.balcCombo.SelectedIndex),
+                tipusHab.banyCheck.Checked));
         }
 
         // Método que numeraliza 
@@ -101,7 +101,7 @@ namespace M13TipusHab.Controller
             else return null;
         }
 
-        String formatTipusBalco(int tipusBalco)
+        String FormatTipusBalco(int tipusBalco)
         {
             if (tipusBalco == 0)
             {
@@ -120,17 +120,17 @@ namespace M13TipusHab.Controller
         // Evento que añade el tipo de habitación a la base de datos
         private void AddButton_Click(object sender, EventArgs e)
         {
-            r.addTipusHab(new tipusHab(
-                new TipusLlits(ComboBox2Index(f.llitCombo.Text)),
-                formatTipusBalco(f.balcCombo.SelectedIndex),
-                f.banyCheck.Checked));
+            r.AddTipusHab(new Model.TipusHab(
+                new TipusLlits(ComboBox2Index(tipusHab.llitCombo.Text)),
+                FormatTipusBalco(tipusHab.balcCombo.SelectedIndex),
+                tipusHab.banyCheck.Checked));
             LoadData();
         }
 
             private void DelButton_Click(object sender, EventArgs e)
             {
-                r.DelTipusHab((f.habDGV.SelectedRows[0].DataBoundItem as tipusHab));
-                reloadDataGridView();
+            r.DelTipusHab((tipusHab.habDGV.SelectedRows[0].DataBoundItem as Model.TipusHab));
+                ReloadDataGridView();
             }
 
             // Método que elige que opciones expone en el combo box de tipos de combinaciones de camas

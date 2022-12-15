@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace M13TipusHab.Model
 {
     // Clase de tipo de habitación
-    public partial class tipusHab
+    public partial class TipusHab
     {
 
-        public tipusHab(TipusLlits tLlits, string tipusBalco, bool teBanyera)
+        public TipusHab(TipusLlits tLlits, string tipusBalco, bool teBanyera)
         {
             llitsInd = tLlits.llitsI;
             llitsDob = tLlits.llitsD;

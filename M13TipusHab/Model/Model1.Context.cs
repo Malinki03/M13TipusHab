@@ -35,7 +35,7 @@ namespace M13TipusHab.Model
         public virtual DbSet<reserva> reservas { get; set; }
         public virtual DbSet<tarifa> tarifas { get; set; }
         public virtual DbSet<tipusBalco> tipusBalcoes { get; set; }
-        public virtual DbSet<tipusHab> tipusHabs { get; set; }
+        public virtual DbSet<TipusHab> tipusHabs { get; set; }
     
         public virtual int addDates(Nullable<System.DateTime> dataInici, Nullable<System.DateTime> dataFi)
         {
