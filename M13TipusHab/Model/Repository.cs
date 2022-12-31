@@ -75,6 +75,11 @@ namespace M13TipusHab.Model
             return db.tarifas.Select(t => t).Where(t => t.codi.Equals(codiTarifa)).FirstOrDefault();
         }
 
+        internal object GetCostas()
+        {
+            return db.costas.Select(c => c).ToList();
+        }
+
         #endregion
 
         #region Insert Querys
@@ -137,6 +142,22 @@ namespace M13TipusHab.Model
             db.SaveChanges();
         }
 
+        #endregion
+
+        #region DeleteQuerys
+
+        public void eliminarCostos()
+        {
+            this.db.Database.ExecuteSqlCommand("DELETE FROM costa;");
+        }
+
+        #endregion
+
+        #region Llamadas a procedures
+        public void addCosta0(DateTime dataInici)
+        {
+            this.db.addCosta0(dataInici);
+        }
         #endregion
     }
 }

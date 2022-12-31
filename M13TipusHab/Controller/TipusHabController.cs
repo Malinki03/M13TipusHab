@@ -19,7 +19,7 @@ namespace M13TipusHab.Controller
             repo = new Repository();
             LoadData();
             InitListener();
-            Application.Run(tipusHab);
+            this.f.Show();
         }
 
         // Método que carga todos los datos de la aplicación

@@ -211,6 +211,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="addCosta0" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dataInici" Type="date" Mode="In" />
+        </Function>
         <Function Name="addDates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="dataInici" Type="date" Mode="In" />
           <Parameter Name="dataFi" Type="date" Mode="In" />
@@ -550,6 +553,9 @@
             <Parameter Name="dataInici" Mode="In" Type="DateTime" />
             <Parameter Name="dataFi" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="addCosta0">
+            <Parameter Name="dataInici" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -649,6 +655,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="addDates" FunctionName="hotelModel.Store.addDates" />
+          <FunctionImportMapping FunctionImportName="addCosta0" FunctionName="hotelModel.Store.addCosta0" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
