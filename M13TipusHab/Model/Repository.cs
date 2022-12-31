@@ -1,6 +1,7 @@
 ﻿using Pabo.Calendar;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -75,9 +76,17 @@ namespace M13TipusHab.Model
             return db.tarifas.Select(t => t).Where(t => t.codi.Equals(codiTarifa)).FirstOrDefault();
         }
 
-        internal object GetCostas()
+        public List<costa> GetCostas()
         {
             return db.costas.Select(c => c).ToList();
+        }
+        public List<costa> GetCostasPerData(DateTime dt)
+        {
+            return db.costas.Select(c => c).Where(c => c.DesDe == dt).ToList();
+        }
+        public List<DateTime> GetDatesDisponibles()
+        {
+            return db.costas.Select(c => c.DesDe).Distinct().ToList();
         }
 
         #endregion
@@ -111,6 +120,13 @@ namespace M13TipusHab.Model
                 MessageBox.Show("Aquest tipus d'habitació ja està creat.");
             }
         }
+        public costa GetCostasById(int id1, int id2, decimal? newPreu)
+        {
+            costa costa = db.costas.Select(c => c).Where(c => c.TipusHab_codi == id1).Where(c => c.Tarifa_codi == id2).FirstOrDefault();
+            costa.preu = newPreu;
+            db.SaveChanges();
+            return costa;
+        }
 
         public void insertarDates(DateTime dataInici, DateTime dataFinal)
         {
@@ -142,13 +158,22 @@ namespace M13TipusHab.Model
             db.SaveChanges();
         }
 
+        public void GrabarCostos(List<costa> costos)
+        {
+            this.db.SaveChanges();
+        }
         #endregion
 
         #region DeleteQuerys
 
-        public void eliminarCostos()
+        public void eliminarCostos(DateTime dt)
         {
-            this.db.Database.ExecuteSqlCommand("DELETE FROM costa;");
+            var cost = this.db.costas.Select(c => c).Where(c => c.DesDe == dt).ToList();
+            foreach(costa c in cost)
+            {
+                this.db.costas.Remove(c);
+            }
+            this.db.SaveChanges();
         }
 
         #endregion
@@ -157,6 +182,7 @@ namespace M13TipusHab.Model
         public void addCosta0(DateTime dataInici)
         {
             this.db.addCosta0(dataInici);
+            this.db.SaveChanges();
         }
         #endregion
     }
