@@ -22,7 +22,7 @@ namespace M13TipusHab.Controller
             calendarConfig();
             this.calendari.tarifaCombo.DataSource = this.repo.GetTarifas();
             this.calendari.tarifaCombo.DisplayMember = "nom";
-            Application.Run(this.calendari);
+            this.calendari.Show();
         }
 
         private void initListeners()

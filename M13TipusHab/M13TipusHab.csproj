@@ -66,6 +66,7 @@
     <Compile Include="Model\calendari.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\MenuController.cs" />
     <Compile Include="Model\TipusHab2.cs" />
     <Compile Include="Model\costa.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -114,6 +115,10 @@
     <Compile Include="View\Calendari.Designer.cs">
       <DependentUpon>Calendari.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Menu.Designer.cs" />
     <Compile Include="View\Preus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +145,7 @@
     <EmbeddedResource Include="View\Calendari.resx">
       <DependentUpon>Calendari.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu.resx" />
     <EmbeddedResource Include="View\Preus.resx">
       <DependentUpon>Preus.cs</DependentUpon>
     </EmbeddedResource>

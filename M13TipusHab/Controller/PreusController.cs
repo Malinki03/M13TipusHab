@@ -22,7 +22,7 @@ namespace M13TipusHab.Controller
             initListeners();
             dgvCongif();
             loadWidgets();
-            Application.Run(this.preus);
+            this.preus.Show();
         }
 
         private void enableButtons()
@@ -65,16 +65,11 @@ namespace M13TipusHab.Controller
         {
             this.preus.esborrar_B.Click += Esborrar_B_Click;
             this.preus.copiar_B.Click += Copiar_B_Click;
-            this.preus.ok_B.Click += Ok_B_Click;
+            //this.preus.ok_B.Click += Ok_B_Click;
             this.preus.cancel_B.Click += Cancel_B_Click;
         }
 
         private void Cancel_B_Click(object sender, EventArgs e)
-        {
-            disableButtons();
-        }
-
-        private void Ok_B_Click(object sender, EventArgs e)
         {
             disableButtons();
         }
